@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native';
 import Hello from '../../components/Hello';
 import Hero from "../../components/Hero";
+import Footer from '../../components/Footer';
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Hero />
       <Text>Welcome to the Home Page!</Text>
       <Hello/>
+      <Footer />
     </View>
   );
 }
