@@ -1,96 +1,153 @@
-import React from 'react';
-import { View, Text, StyleSheet, Pressable, Linking } from 'react-native';
-import { FontAwesome, AntDesign, Entypo } from '@expo/vector-icons';
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Linking,
+  useWindowDimensions,
+} from "react-native";
+import { FontAwesome, FontAwesome6, Entypo, Ionicons } from "@expo/vector-icons";
 
 export default function Footer() {
+  const { width } = useWindowDimensions();
+
+  const isSmall = width < 400;
+  const isMedium = width >= 400 && width < 768;
+  const isLarge = width >= 768;
+
+  const iconSize = isSmall ? 28 : isMedium ? 34 : 40;
+  const headingSize = isSmall ? 16 : isMedium ? 18 : 22;
+  const textSize = isSmall ? 13 : isMedium ? 16 : 20;
+  const copySize = isSmall ? 12 : isMedium ? 14 : 18;
+  const linkSize = isSmall ? 13 : isMedium ? 15 : 18;
+
+  const iconRowWidth = isSmall ? "92%" : isMedium ? "70%" : "55%";
+
+  const openLink = (url: string) => {
+    Linking.openURL(url);
+  };
+
   return (
-    <View style={styles.footer}>
-      <View style={styles.iconRow}>
-        <Pressable onPress={() => Linking.openURL('https://facebook.com')}>
-          <FontAwesome name="facebook" size={24} />
-        </Pressable>
+    <View style={styles.wrapper}>
+      <View style={styles.footer}>
+        <View style={[styles.iconRow, { width: iconRowWidth }]}>
 
-        <Pressable onPress={() => Linking.openURL('https://x.com')}>
-          <AntDesign name="twitter" size={24} />
-        </Pressable>
+          {/* Facebook */}
+          <Pressable onPress={() => openLink("https://www.facebook.com")}>
+            <FontAwesome6 name="facebook" size={iconSize} color="black" />
+          </Pressable>
 
-        <Pressable onPress={() => Linking.openURL('https://instagram.com')}>
-          <AntDesign name="instagram" size={24} />
-        </Pressable>
+          {/* X */}
+          <Pressable onPress={() => openLink("https://x.com")}>
+            <FontAwesome6 name="x-twitter" size={iconSize} color="black" />
+          </Pressable>
 
-        <Pressable onPress={() => Linking.openURL('https://youtube.com')}>
-          <Entypo name="youtube" size={24} />
-        </Pressable>
+          {/* Instagram (outlined / hollow) */}
+          <Pressable onPress={() => openLink("https://www.instagram.com")}>
+            <Ionicons name="logo-instagram" size={iconSize} color="black" />
+          </Pressable>
 
-        <Pressable onPress={() => Linking.openURL('https://linkedin.com')}>
-          <Entypo name="linkedin" size={24} />
-        </Pressable>
-      </View>
+          {/* YouTube */}
+          <Pressable onPress={() => openLink("https://www.youtube.com")}>
+            <Entypo name="youtube" size={iconSize} color="black" />
+          </Pressable>
 
-      <View style={styles.section}>
-        <Text style={styles.heading}>Address:</Text>
-        <Text style={styles.text}>North Seattle College</Text>
-        <Text style={styles.text}>9600 College Way North</Text>
-        <Text style={styles.text}>Seattle, WA 98103</Text>
-      </View>
+          {/* LinkedIn boxed */}
+          <Pressable onPress={() => openLink("https://www.linkedin.com")}>
+            <FontAwesome name="linkedin-square" size={iconSize} color="black" />
+          </Pressable>
 
-      <View style={styles.section}>
-        <Text style={styles.heading}>Contact</Text>
-        <Text style={styles.text}>206.934.3600</Text>
-      </View>
+        </View>
 
-      <Text style={styles.copy}>@2025 All right reserved</Text>
+        <View style={styles.textBlock}>
+          <Text style={[styles.heading, { fontSize: headingSize }]}>
+            Address:
+          </Text>
+          <Text style={[styles.text, { fontSize: textSize }]}>
+            North Seattle College
+          </Text>
+          <Text style={[styles.text, { fontSize: textSize }]}>
+            9600 College Way North
+          </Text>
+          <Text style={[styles.text, { fontSize: textSize }]}>
+            Seattle, WA 98103
+          </Text>
+        </View>
 
-      <View style={styles.linkRow}>
-        <Pressable>
-          <Text style={styles.link}>Terms</Text>
-        </Pressable>
-        <Pressable>
-          <Text style={styles.link}>Privacy</Text>
-        </Pressable>
+        <View style={styles.textBlock}>
+          <Text style={[styles.heading, { fontSize: headingSize }]}>
+            Contact
+          </Text>
+          <Text style={[styles.text, { fontSize: textSize }]}>
+            206.934.3600
+          </Text>
+        </View>
+
+        <Text style={[styles.copy, { fontSize: copySize }]}>
+          ©2025 All rights reserved
+        </Text>
+
+        <View style={styles.linkRow}>
+          <Pressable>
+            <Text style={[styles.link, { fontSize: linkSize }]}>Terms</Text>
+          </Pressable>
+
+          <Pressable>
+            <Text style={[styles.link, { fontSize: linkSize }]}>Privacy</Text>
+          </Pressable>
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    width: "100%",
+    marginTop: 40,
+  },
   footer: {
-    backgroundColor: '#8c8c8c',
-    paddingVertical: 30,
+    width: "100%",
+    backgroundColor: "#9d9d9d",
+    alignItems: "center",
+    paddingVertical: 36,
     paddingHorizontal: 20,
-    alignItems: 'center',
   },
   iconRow: {
-    flexDirection: 'row',
-    gap: 18,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 34,
+  },
+  textBlock: {
+    alignItems: "center",
     marginBottom: 28,
   },
-  section: {
-    alignItems: 'center',
-    marginBottom: 22,
-  },
   heading: {
-    fontWeight: '700',
-    fontSize: 18,
-    marginBottom: 6,
-    color: '#fff',
+    color: "white",
+    fontWeight: "700",
+    textAlign: "center",
+    marginBottom: 8,
   },
   text: {
-    color: '#fff',
-    fontSize: 16,
-    textAlign: 'center',
+    color: "white",
+    textAlign: "center",
+    lineHeight: 30,
   },
   copy: {
-    color: '#fff',
-    marginTop: 12,
-    marginBottom: 18,
+    color: "white",
+    textAlign: "center",
+    marginBottom: 20,
   },
   linkRow: {
-    flexDirection: 'row',
-    gap: 30,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 28,
   },
   link: {
-    color: '#fff',
-    textDecorationLine: 'underline',
+    color: "white",
+    textDecorationLine: "underline",
   },
 });
