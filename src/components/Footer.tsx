@@ -64,13 +64,13 @@ export default function Footer() {
           <Text style={[styles.heading, { fontSize: headingSize }]}>
             Address:
           </Text>
-          <Text style={[styles.text, { fontSize: textSize }]}>
+          <Text style={[styles.text, { fontSize: textSize, lineHeight: textSize * 1.3 }]}>
             North Seattle College
           </Text>
-          <Text style={[styles.text, { fontSize: textSize }]}>
+          <Text style={[styles.text, { fontSize: textSize, lineHeight: textSize * 1.3 }]}>
             9600 College Way North
           </Text>
-          <Text style={[styles.text, { fontSize: textSize }]}>
+          <Text style={[styles.text, { fontSize: textSize, lineHeight: textSize * 1.3 }]}>
             Seattle, WA 98103
           </Text>
         </View>
@@ -79,7 +79,7 @@ export default function Footer() {
           <Text style={[styles.heading, { fontSize: headingSize }]}>
             Contact
           </Text>
-          <Text style={[styles.text, { fontSize: textSize }]}>
+          <Text style={[styles.text, { fontSize: textSize, lineHeight: textSize * 1.3 }]}>
             206.934.3600
           </Text>
         </View>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   textBlock: {
     alignItems: "center",
-    marginBottom: 28,
+    marginBottom: 20,
   },
   heading: {
     color: "white",
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
     textAlign: "center",
-    lineHeight: 30,
+    lineHeight: 20,
   },
   copy: {
     color: "white",
