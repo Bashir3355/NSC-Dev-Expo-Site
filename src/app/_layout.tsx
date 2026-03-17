@@ -9,7 +9,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     'Inter': require('../../assets/fonts/Inter-VariableFont_opsz,wght.ttf'),
-    'Inter-Italic': require('../../assets/fonts/Inter-Italic-VariableFont_wdth,wght.ttf'),
+    'Inter-Italic': require('../../assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
     'Roboto': require('../../assets/fonts/Roboto-VariableFont_wdth,wght.ttf'),
     'Roboto-Italic': require('../../assets/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf')
   });
