@@ -6,7 +6,10 @@
     "start": "expo start",
     "start:web": "npx expo start --web",
     "android": "expo start --android",
-    "ios": "expo start --ios"
+    "ios": "expo start --ios",
+    "storybook-generate": "sb-rn-get-stories",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
@@ -21,11 +24,36 @@
     "react-native": "0.81.5",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",
-    "react-native-web": "^0.21.0"
+    "react-native-web": "^0.21.0",
+    "@babel/core": "^7.29.0",
+    "babel-loader": "^8.4.1",
+    "@react-native-async-storage/async-storage": "^3.0.1",
+    "@react-native-community/datetimepicker": "^8.6.0",
+    "@react-native-community/slider": "^5.1.2",
+    "react-native-reanimated": "^4.2.2",
+    "react-native-gesture-handler": "^2.30.0",
+    "@gorhom/bottom-sheet": "^5.2.8",
+    "react-native-svg": "^15.15.3",
+    "@storybook/addon-ondevice-controls": "^10.2.3",
+    "@storybook/addon-ondevice-actions": "^10.2.3",
+    "@storybook/react-native": "^10.2.3",
+    "storybook": "^10.2.17"
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "storybook": "^10.2.17",
+    "@storybook/react-native-web-vite": "^10.2.17",
+    "@chromatic-com/storybook": "^5.0.1",
+    "@storybook/addon-vitest": "^10.2.17",
+    "@storybook/addon-a11y": "^10.2.17",
+    "@storybook/addon-docs": "^10.2.17",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18",
+    "playwright": "^1.58.2",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@storybook/addon-onboarding": "^10.2.17"
   },
   "private": true
 }
