@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   mapContainer: {
-    width: 498,
+    width: "100%",
     height: 376,
     backgroundColor: "#D9D9D9",
     borderWidth: 0,
@@ -76,8 +76,7 @@ const styles = StyleSheet.create({
     lineHeight: 32,
   },
   contactSection: {
-    width: 493,
-    height: 341,
+    width: "100%",
     backgroundColor: "transparent",
     borderWidth: 0,
     alignItems: "flex-start",
