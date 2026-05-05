@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     width: "100%",
-    height: 376,
     backgroundColor: "#D9D9D9",
     borderWidth: 0,
     borderRadius: 0,
