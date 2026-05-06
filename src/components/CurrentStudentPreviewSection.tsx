@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
   sectionContainer: {
     width: "100%",
     maxWidth: 700,
-    height: 1000,
     backgroundColor: "#D9D9D9",
     alignSelf: "center",
     paddingVertical: 16,
@@ -103,23 +102,23 @@ const styles = StyleSheet.create({
     marginTop: 64,
   },
   heading: {
-    width: 310,
-    height: 38,
+    width: "100%",
+    flexShrink: 1,
     color: "#000000",
     fontFamily: "Roboto",
     fontSize: 32,
     fontWeight: "500",
-    lineHeight: 32,
+    lineHeight: 38,
   },
   subheading: {
-    width: 376,
-    height: 28,
+    width: "100%",
+    flexShrink: 1,
     marginTop: 11,
     color: "#000000",
     fontFamily: "Roboto",
     fontSize: 24,
     fontWeight: "500",
-    lineHeight: 24,
+    lineHeight: 29,
   },
   grid: {
     width: "100%",
@@ -142,7 +141,6 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   cardHeader: {
-    height: 52,
     justifyContent: "flex-start",
   },
   roleLabel: {
@@ -151,14 +149,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "400",
     fontStyle: "italic",
-    lineHeight: 20,
+    lineHeight: 24,
   },
   nameLabel: {
     color: "#000000",
     fontFamily: "Inter",
     fontSize: 24,
     fontWeight: "700",
-    lineHeight: 24,
+    lineHeight: 29,
     marginTop: 1,
   },
   imagePlaceholder: {
@@ -173,7 +171,7 @@ const styles = StyleSheet.create({
     fontFamily: "Inter",
     fontSize: 13,
     fontWeight: "400",
-    lineHeight: 13,
+    lineHeight: 16,
     textAlign: "center",
   },
   button: {
@@ -190,7 +188,7 @@ const styles = StyleSheet.create({
     fontFamily: "Inter",
     fontSize: 32,
     fontWeight: "500",
-    lineHeight: 32,
+    lineHeight: 39,
     textAlign: "center",
   },
   buttonIcon: {
