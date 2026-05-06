@@ -81,11 +81,9 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   phoneFrame: {
-    width: 320,
+    width: "100%",
+    maxHeight: 320,
     minHeight: 560,
-    borderLeftWidth: 8,
-    borderRightWidth: 8,
-    borderColor: "#000000",
     borderRadius: 8,
     paddingHorizontal: 26,
     paddingVertical: 32,
