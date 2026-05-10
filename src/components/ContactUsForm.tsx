@@ -14,14 +14,23 @@ const ContactUsForm = () => {
   const [businessName, setBusinessName] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = () => {
+ const handleSubmit = () => {
+  if (!name.trim() || !email.trim() || !message.trim()) {
     Alert.alert(
-      "Contact Form Submitted",
-      `Name: ${name}\nEmail: ${email}\nBusiness Name: ${
-        businessName || "N/A"
-      }\nMessage: ${message}`,
+      "Missing Required Fields",
+      "Please fill out Name, Email, and Your message before submitting."
     );
-  };
+    return;
+  }
+
+  Alert.alert(
+    "Contact Form Submitted",
+    `Name: ${name}
+Email: ${email}
+Business Name: ${businessName || "N/A"}
+Message: ${message}`
+  );
+};
 
   return (
     <View style={styles.wrapper}>
@@ -82,7 +91,6 @@ const styles = StyleSheet.create({
   },
   phoneFrame: {
     width: "100%",
-    maxHeight: 320,
     minHeight: 560,
     borderRadius: 8,
     paddingHorizontal: 26,

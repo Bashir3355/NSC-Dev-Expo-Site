@@ -1,14 +1,13 @@
-import React from "react";
-import { View } from "react-native";
+import type { Meta, StoryObj } from "@storybook/react";
 import ContactUsForm from "../components/ContactUsForm";
 
-export default {
+const meta = {
   title: "Components/ContactUsForm",
   component: ContactUsForm,
-};
+} satisfies Meta<typeof ContactUsForm>;
 
-export const Default = () => (
-  <View style={{ padding: 20, backgroundColor: "#fff" }}>
-    <ContactUsForm />
-  </View>
-);
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
