@@ -1,6 +1,5 @@
-import ContactUsBanner from '../../components/ContactUsBanner';
+import ContactSuccessMessage from '../../components/ContactSuccessMessage';
 
 export default function ContactPage() {
-  return <ContactUsBanner />;
-  
+  return <ContactSuccessMessage />;
 }
