@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 
-type Props = {
+type infoBadgeProps = {
   title: string;
   description: string;
   buttonText: string;
@@ -13,7 +13,7 @@ export default function InformationalBadge({
   description,
   buttonText,
   onPress,
-}: Props) {
+}: infoBadgeProps) {
   return (
     <View style={styles.card}>
       {/* Top bar */}
