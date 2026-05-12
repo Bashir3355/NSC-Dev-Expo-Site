@@ -11,11 +11,9 @@ export default function CompanyCard({ name, logo }: CompanyCardProps) {
       {logo ? (
         <Image source={logo} style={styles.logo} resizeMode="contain" />
       ) : (
-        <View style={styles.grayBox}>
-          <Text style={styles.grayText}>
-            Company Logo*{"\n"}Company Name
-          </Text>
-        </View>
+        <Text style={styles.placeholderText}>
+          Company{"\n"}Logo*{"\n\n"}{name}
+        </Text>
       )}
     </View>
   );
@@ -23,38 +21,23 @@ export default function CompanyCard({ name, logo }: CompanyCardProps) {
 
 const styles = StyleSheet.create({
   card: {
-    width: 100,
-    height: 100, 
+    width: 150,
+    height: 150,
+    backgroundColor: "#6B6B6B",
     justifyContent: "center",
     alignItems: "center",
-    margin: 8,
-    backgroundColor: "#666666",
   },
   logo: {
-    width: "70%",
-    height: "70%",
+    width: 90,
+    height: 90,
   },
-  fallback: {
-    textAlign: "center",
-    fontSize: 12,
-    
-    paddingHorizontal: 4,
-  },
-  grayBox: {
-    width: "70%",
-    height: "70%",
-    backgroundColor: "#666666",
-    
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: 6,
-  },
-  grayText: {
-    fontSize: 10,
+  placeholderText: {
     color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "700",
+    lineHeight: 18,
     textAlign: "left",
-    lineHeight: 12,
-    marginTop: 24,
-    marginBottom: 10,
+    alignSelf: "flex-start",
+    marginLeft: 38,
   },
 });
