@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import type { Meta, StoryObj } from '@storybook/react';
-import StatBlock from './StatBlock';
+import StatBlock from '../components/StatBlock';
 
 const meta = {
     title: 'Components/StatBlock',
