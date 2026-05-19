@@ -1,127 +1,203 @@
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-
-const screenWidth = Dimensions.get('window').width;
-const isMobile = screenWidth < 768;
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 
 export default function ContactUsBanner() {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
+      
+      {/* Hero Section */}
+      <View style={styles.hero}>
+        <Text style={styles.title}>
+          Interested in Working with the Tech Hub?
+        </Text>
 
-      {/* Top Banner with Gradient */}
-      <LinearGradient
-        colors={['#1A1A1A', '#808080']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        style={styles.topBanner}
-      >
-        <Text style={styles.mainHeading}>Need help with your business?</Text>
-        <Text style={styles.subHeading}>We will build your IT needs</Text>
-      </LinearGradient>
-
-      {/* Stats Grid - 6 boxes */}
-      <View style={styles.statsGrid}>
-        <View style={styles.statBox}>
-          <Text style={styles.statNumber}>10+</Text>
-          <Text style={styles.statDescription}>Departments within our school to build your business</Text>
-        </View>
-        <View style={styles.emptyBox} />
-        <View style={styles.statBox}>
-          <Text style={styles.statNumber}>100%</Text>
-          <Text style={styles.statDescription}>All client projects have come under completion and maintenance</Text>
-        </View>
-        <View style={styles.emptyBox} />
-        <View style={styles.statBox}>
-          <Text style={styles.statNumber}>6</Text>
-          <Text style={styles.statDescription}>Commercial projects under our belt</Text>
-        </View>
-        <View style={styles.emptyBox} />
+        <Text style={styles.subtitle}>
+          The North Seattle Tech Hub is always looking to connect with new
+          people. If you are interested, please fill out the form below.
+        </Text>
       </View>
 
-      {/* Bottom Section */}
-      <View style={styles.bottomSection}>
-        <Text style={styles.bottomHeading}>Are you a small business or Non-profit Org?</Text>
-        <Text style={styles.bottomSubHeading}>Tell us what you need help with</Text>
-      </View>
+      {/* Contact Layout */}
+      <View style={styles.layout}>
+        
+        {/* Left Side */}
+        <View style={styles.leftCard}>
+          <View style={styles.placeholder}>
+            <Text style={styles.placeholderText}>
+              Image Placeholder
+            </Text>
+          </View>
 
-    </View>
+          <Text style={styles.cardTitle}>
+            Collaborate With Us
+          </Text>
+
+          <Text style={styles.cardText}>
+            NSC Tech Hub connects students, technology, and creative projects
+            together through collaboration and innovation.
+          </Text>
+        </View>
+
+        {/* Right Side */}
+        <View style={styles.form}>
+          
+          <Text style={styles.label}>Name</Text>
+          <TextInput
+            placeholder="Enter your name"
+            placeholderTextColor="#94a3b8"
+            style={styles.input}
+          />
+
+          <Text style={styles.label}>Email</Text>
+          <TextInput
+            placeholder="Enter your email"
+            placeholderTextColor="#94a3b8"
+            style={styles.input}
+          />
+
+          <Text style={styles.label}>Message</Text>
+          <TextInput
+            multiline
+            numberOfLines={6}
+            placeholder="Type your message"
+            placeholderTextColor="#94a3b8"
+            style={styles.textarea}
+          />
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>
+              Send Message
+            </Text>
+          </TouchableOpacity>
+
+        </View>
+
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    width: '100%',
-    flex: 1,
+    backgroundColor: "#050816",
+    padding: 20,
+    minHeight: "100%",
   },
-  topBanner: {
-    paddingVertical: isMobile ? 16 : 40,
-    paddingHorizontal: isMobile ? 32 : 48,
-    alignItems: 'flex-start',
+
+  hero: {
+    marginBottom: 40,
+    alignItems: "center",
   },
-  mainHeading: {
-    color: '#E8E8E8',
-    fontSize: isMobile ? 20 : 28,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingBottom: 22,
+
+  title: {
+    fontSize: 38,
+    fontWeight: "800",
+    color: "white",
+    textAlign: "center",
+    marginBottom: 16,
   },
-  subHeading: {
-    color: '#DBDBDB',
-    fontSize: isMobile ? 14 : 18,
-    textAlign: 'left',
+
+  subtitle: {
+    color: "#cbd5e1",
+    fontSize: 16,
+    textAlign: "center",
+    lineHeight: 24,
+    maxWidth: 700,
   },
-  statsGrid: {
-    backgroundColor: '#f0f0f0',
-    padding: 10,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
+
+  layout: {
+    gap: 20,
   },
-  statBox: {
-    width: '33.33%',
-    backgroundColor: '#D9D9D9',
-    margin: 0,
-    // padding: isMobile ? 10 : 24,
-    paddingBottom: 4,
-    alignItems: 'center',
-    borderRadius: 0,
-    minHeight: isMobile ? 80 : 80,
-    justifyContent: 'center',
+
+  leftCard: {
+    backgroundColor: "#0f172a",
+    borderRadius: 20,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: "#1e293b",
   },
-  emptyBox: {
-    width: isMobile ? '33.33%' : '20%',
-    backgroundColor: '#f0f0f0',
-    margin: 0,
-    borderRadius: 0,
+
+  placeholder: {
+    height: 250,
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: "#475569",
+    borderStyle: "dashed",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#111827",
+    marginBottom: 20,
   },
-  statNumber: {
-    fontSize: isMobile ? 22 : 36,
-    fontWeight: '500',
-    color: '#000000',
+
+  placeholderText: {
+    color: "#94a3b8",
   },
-  statDescription: {
-    fontSize: isMobile ? 10 : 14,
-    textAlign: 'center',
-    color: '#000000',
-    marginTop: 4,
+
+  cardTitle: {
+    color: "white",
+    fontSize: 28,
+    fontWeight: "700",
+    marginBottom: 10,
   },
-  bottomSection: {
-    padding: isMobile ? 20 : 40,
-    paddingHorizontal: isMobile ? 20 : 48,
-    alignItems: 'flex-start',
-    backgroundColor: '#fff',
+
+  cardText: {
+    color: "#cbd5e1",
+    lineHeight: 24,
+    fontSize: 15,
   },
-  bottomHeading: {
-    fontSize: isMobile ? 22 : 32,
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#1a1a1a',
-    marginBottom: 6,
+
+  form: {
+    backgroundColor: "#0f172a",
+    borderRadius: 20,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: "#1e293b",
   },
-  bottomSubHeading: {
-    fontSize: isMobile ? 13 : 16,
-    color: '#666666',
-    textAlign: 'left',
+
+  label: {
+    color: "white",
+    marginBottom: 8,
+    fontWeight: "700",
+  },
+
+  input: {
+    backgroundColor: "#020617",
+    borderColor: "#334155",
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 14,
+    color: "white",
+    marginBottom: 18,
+  },
+
+  textarea: {
+    backgroundColor: "#020617",
+    borderColor: "#334155",
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 14,
+    color: "white",
+    marginBottom: 18,
+    textAlignVertical: "top",
+    height: 140,
+  },
+
+  button: {
+    backgroundColor: "#2563eb",
+    padding: 16,
+    borderRadius: 12,
+    alignItems: "center",
+  },
+
+  buttonText: {
+    color: "white",
+    fontWeight: "700",
+    fontSize: 16,
   },
 });
