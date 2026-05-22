@@ -1,14 +1,19 @@
-import { View, Text, StyleSheet } from "react-native";
-import CompanyCard from "./CompanyCard";
-import { ImageSourcePropType } from "react-native";
+import { View, Text, StyleSheet, ImageSourcePropType } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import CompanyCard from "./CompanyCard";
 
-type Company = {
+export type Company = {
   name: string;
   logo?: ImageSourcePropType;
 };
 
-const companies: Company[] = [
+type AlumniCompaniesProps = {
+  title?: string;
+  companies?: Company[];
+  pageName?: string;
+};
+
+const defaultCompanies: Company[] = [
   { name: "Company1" },
   { name: "Company2" },
   { name: "Company3" },
@@ -17,21 +22,31 @@ const companies: Company[] = [
   { name: "Company6" },
   { name: "Company7" },
   { name: "Company8" },
-
 ];
 
-export default function AlumniCompanies() {
+export default function AlumniCompanies({
+  title = "Where our Alumni are now",
+  companies = defaultCompanies,
+  pageName = "home",
+}: AlumniCompaniesProps) {
+  const isHomePage = pageName.toLowerCase() === "home";
+
   return (
-    <LinearGradient 
-        colors={["#1A1A1A", "#808080"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        style={styles.gradient}>
-      <Text style={styles.title}>Where our Alumni are now</Text>
+    <LinearGradient
+      colors={isHomePage ? ["#1A1A1A", "#808080"] : ["#808080", "#1A1A1A"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+      style={styles.gradient}
+    >
+      <Text style={styles.title}>{title}</Text>
 
       <View style={styles.grid}>
-        {companies.map((c, i) => (
-          <CompanyCard key={i} name={c.name} logo={c.logo} />
+        {companies.map((company, index) => (
+          <CompanyCard
+            key={`${company.name}-${index}`}
+            name={company.name}
+            logo={company.logo}
+          />
         ))}
       </View>
     </LinearGradient>
@@ -39,23 +54,27 @@ export default function AlumniCompanies() {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 22,
-    fontWeight: "700",
-    marginBottom: 16,
-    color: "#E0E0E0",
+  gradient: {
+    width: "100%",
+    paddingVertical: 40,
+    paddingHorizontal: 20,
+    alignItems: "center",
   },
+
+  title: {
+    fontSize: 36,
+    fontWeight: "700",
+    color: "#FFFFFF",
+    marginBottom: 40,
+    alignSelf: "flex-start",
+    marginLeft: 40,
+  },
+
   grid: {
+    width: 700,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    paddingHorizontal: 20,
+    gap: 40,
   },
-  gradient: {
-    paddingHorizontal: 20,
-    paddingVertical: 30,
-    width: "100%",
-
-  },
-  
 });
