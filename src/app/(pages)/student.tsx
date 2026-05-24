@@ -1,9 +1,14 @@
-import { View, Text } from 'react-native';
+import { View } from "react-native";
+import StudentBanner from "../../components/StudentBanner";
 
 export default function StudentPage() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to the Student Page!</Text>
+    <View>
+      <StudentBanner
+        title="Interested in Joining NSC?"
+        buttonLabel="Apply Now"
+        onPress={() => console.log("Apply Now clicked")}
+      />
     </View>
   );
 }
