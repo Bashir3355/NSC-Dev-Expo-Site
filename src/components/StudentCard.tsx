@@ -1,78 +1,48 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 
-type StudentCardProps = {
+type Props = {
   name: string;
   description: string;
 };
 
-export default function StudentCard({ name, description }: StudentCardProps) {
+export default function StudentCard({ name, description }: Props) {
   return (
     <View style={styles.card}>
-      <View style={styles.imageBox} />
+      <View style={styles.imagePlaceholder} />
 
       <Text style={styles.name}>{name}</Text>
 
-      <Text style={styles.description}>{description}</Text>
+      <Text style={styles.description}>
+        {description}
+      </Text>
 
-      <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.darkButton}>
-          <Text style={styles.darkButtonText}>GitHub</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.lightButton}>
-          <Text style={styles.lightButtonText}>Student Page</Text>
-        </TouchableOpacity>
-      </View>
+      <Button title="GitHub" onPress={() => {}} />
+      <Button title="Student Page" onPress={() => {}} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#ffffff",
-    padding: 16,
-    borderRadius: 12,
-    margin: 16,
-    maxWidth: 320,
-  },
-  imageBox: {
-    height: 150,
-    backgroundColor: "#d9d9d9",
+    padding: 20,
+    borderWidth: 1,
     borderRadius: 10,
-    marginBottom: 12,
-  },
-  name: {
-    fontSize: 20,
-    fontWeight: "700",
-    marginBottom: 8,
-  },
-  description: {
-    fontSize: 14,
-    lineHeight: 20,
-    marginBottom: 14,
-  },
-  buttonRow: {
-    flexDirection: "row",
     gap: 10,
   },
-  darkButton: {
-    backgroundColor: "#111111",
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderRadius: 8,
+
+  imagePlaceholder: {
+    width: 200,
+    height: 200,
+    backgroundColor: "#10914c",
+    alignSelf: "center",
   },
-  darkButtonText: {
-    color: "#ffffff",
-    fontWeight: "600",
+
+  name: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
-  lightButton: {
-    backgroundColor: "#eeeeee",
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderRadius: 8,
-  },
-  lightButtonText: {
-    color: "#111111",
-    fontWeight: "600",
+
+  description: {
+    fontSize: 16,
   },
 });
