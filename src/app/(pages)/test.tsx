@@ -1,5 +1,6 @@
 import { View, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import FontTest from 'src/components/FontTest';
 
 export default function TestPage() {
   return (
@@ -10,8 +11,10 @@ export default function TestPage() {
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.gradient}
-    >
+    > 
       </LinearGradient>
+      <FontTest/>
+      <FontTest font1='Roboto' font2='Inter'/>
     </View>
   );
 }
