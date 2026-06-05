@@ -1,34 +1,13 @@
-import { View, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import FontTest from 'src/components/FontTest';
+import { SafeAreaView } from "react-native";
+import StudentCard from "../../components/StudentCard";
 
-export default function TestPage() {
+export default function Test() {
   return (
-    <View style={styles.container}>
-      <LinearGradient
-        // Colors for the gradient
-        colors={['#4c669f', '#3b5998', '#192f6a']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.gradient}
-    > 
-      </LinearGradient>
-      <FontTest/>
-      <FontTest font1='Roboto' font2='Inter'/>
-    </View>
+    <SafeAreaView style={{ padding: 20 }}>
+      <StudentCard
+        name="Bashir Abdullahi"
+        description="I work on design, front-end components, and student project pages for the NSC Dev Expo Site."
+      />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-    },
-    gradient: {
-        width: '80%', // Adjust size as needed
-        height: 200,
-        borderRadius: 15,
-    }
-});
